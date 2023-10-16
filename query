@@ -1,0 +1,43 @@
+create database travel;
+
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(256)
+);
+
+CREATE TABLE accommodations (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    location VARCHAR(50),
+    price INT,
+    amenities VARCHAR(100),
+    rating FLOAT
+);
+
+
+ALTER TABLE users
+ADD COLUMN first_name VARCHAR(50),
+ADD COLUMN last_name VARCHAR(50),
+ADD COLUMN phone VARCHAR(20);
+
+CREATE TABLE RateAndReview (
+    review_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    accommodation_id INT,
+    rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
+    review_text TEXT,
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (accommodation_id) REFERENCES Accommodations(id)
+);
+
+
+CREATE TABLE Bookings (
+    booking_id INT PRIMARY KEY AUTO_INCREMENT,
+    accommodation_id INT,
+    user_id INT,
+    FOREIGN KEY(accommodation_id) REFERENCES Accommodations(id),
+    FOREIGN KEY(user_id) REFERENCES Users(id)
+);

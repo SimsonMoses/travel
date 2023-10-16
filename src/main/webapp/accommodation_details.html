@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accommodation Details</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for AJAX -->
+</head>
+<body>
+    <h1 id="title"></h1>
+    <p>Location: <span id="location"></span></p>
+    <p>Price Range: <span id="priceRange"></span></p>
+    <p>Description: <span id="description"></span></p>
+    <button onclick="bookAccommodation()">Book Now</button>
+
+    <script>
+        // Populate the fields
+        document.getElementById('title').textContent = "Hotel XYZ";
+        document.getElementById('location').textContent = "New York";
+        document.getElementById('priceRange').textContent = "High";
+        document.getElementById('description').textContent = "A luxurious hotel in downtown New York.";
+
+        function bookAccommodation() {
+            // Create an object to send to the server
+            const bookingData = {
+                accommodationId: 1, // ID of the accommodation, replace with real ID
+                userId: 1 // ID of the user, replace with real ID
+            };
+
+            // Send a POST request to the server to book the accommodation
+            $.ajax({
+                type: "POST",
+                url: "/bookAccommodation", // Replace with your server-side endpoint
+                data: JSON.stringify(bookingData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(response) {
+                    // Handle successful response from the server
+                    alert(response.message);
+                },
+                error: function(error) {
+                    // Handle error
+                    alert("An error occurred while booking.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

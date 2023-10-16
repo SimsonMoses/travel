@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reviews and Ratings</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--<script>
+        function submitReview() {
+            const reviewText = $("#review").val();
+            const rating = $("input[name='rating']:checked").val();
+            $.post("submitReview", { review: reviewText, rating: rating }, function(data) {
+                alert(data);
+            });
+        }
+
+        $(document).ready(function(){
+            $.get("getReviews", function(data) {
+                $("#reviewList").html(data);
+            });
+        });
+    </script>-->
+</head>
+<body>
+    <h1>Submit Reviews and Ratings</h1>
+    <form action="SubmitReviewServlet" method="post">
+		    <textarea name="review" rows="4" cols="50" placeholder="Write your review here"></textarea><br>
+		    <input type="radio" id="1" name="rating" value="1">
+		    <label for="1">1</label>
+		    <input type="radio" id="2" name="rating" value="2">
+		    <label for="2">2</label>
+		    <input type="radio" id="3" name="rating" value="3">
+		    <label for="3">3</label>
+		    <input type="radio" id="4" name="rating" value="4">
+		    <label for="4">4</label>
+		    <input type="radio" id="5" name="rating" value="5">
+		    <label for="5">5</label><br>
+		    <button  type="submit">Submit</button>
+	</form>
+    <h1>Reviews and Ratings List</h1>
+    <div id="reviewList"></div>
+</body>
+</html>

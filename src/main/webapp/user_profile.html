@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <script type="text/javascript">
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</head>
+<body>
+    <h1>Your Profile</h1>
+    <form action="userProfile" method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone"><br>
+
+        <input type="submit" value="Update Profile">
+    </form>
+    <button onclick="goToPage('accommodation_details.html')">Accommodation</button>
+    <button onclick="goToPage('logout.html')">Logout</button>
+    <button onclick="goToPage('search.html')">Search Accommodations</button>
+    <button onclick="goToPage('reviews_ratings.html')">Reviews and Ratings</button>
+</body>
+</html>
