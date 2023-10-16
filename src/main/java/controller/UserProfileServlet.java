@@ -58,6 +58,8 @@ public class UserProfileServlet extends HttpServlet {
 
             if (result > 0) {
                 response.getWriter().print("Profile updated successfully");
+                response.sendRedirect("success.html"); // Assuming the success page is named 'success.html'
+
             } else {
                 response.getWriter().print("Profile update failed");
             }

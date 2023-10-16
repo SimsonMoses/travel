@@ -48,6 +48,8 @@ public class BookingServlet extends HttpServlet {
 
 	            if (result > 0) {
 	                out.println("Booking successful!");
+	                response.sendRedirect("success.html"); // Assuming the success page is named 'success.html'
+
 	            } else {
 	                out.println("Failed to book accommodation.");
 	            }
