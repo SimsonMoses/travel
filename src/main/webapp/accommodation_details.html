@@ -2,35 +2,151 @@
 <html>
 <head>
     <title>Accommodation Details</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for AJAX -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-    <!-- Assume these are dynamically generated based on the available accommodations -->
-    <div class="accommodation" id="hotel1">
-        <h1>Hotel XYZ</h1>
-        <p>Location: New York</p>
-        <p>Price Range: High</p>
-        <p>Description: A luxurious hotel in downtown New York.</p>
-        <form action="bookAccommodation" method="post">
-            <input type="hidden" name="accommodationId" value="1">
-            <input type="hidden" name="userId" value="1"> <!-- Replace with the logged-in user's ID -->
-            <input type="submit" value="Book Now">
-        </form>
+<body class="container mt-5">
+	<div class="container">
+        <div class="jumbotron text-center mt-5">
+            <h1 class="display-4">Welcome to Accommodation Booking</h1>
+            <p class="lead">Find your perfect stay for your next adventure.</p>
+        </div>
+    </div>
+	<div class="d-flex justify-content-between mt-3 mb-3">
+    
+    <!-- Filter Form -->
+    <form id="filterForm">
+        <input type="text" id="searchName" placeholder="Search by Name">
+        <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="New York">New York</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Maldives">Maldives</option>
+            <option value="Switzerland">Switzerland</option>
+            
+        </select>
+        <select id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+        </select>
+        <input type="checkbox" id="pool"> Pool
+        <input type="checkbox" id="wifi"> Wi-Fi
+        <button type="submit">Apply Filters</button>
+    </form>
+	<a href="checkout.html" class="btn btn-success">Checkout</a>
+	</div>
+
+    <div class="row mt-4">
+        <!-- Hotel 1 -->
+        <div class="col-md-4 mb-4 hotel" data-name="Hotel XYZ" data-location="New York" data-price="High" data-amenities="pool,wifi">
+            <div class="card">
+                <img src="hotel1.jpg" class="card-img-top" alt="Hotel XYZ">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel XYZ</h5>
+                    <p class="card-text">Location: New York</p>
+                    <p class="card-text">Price Range: High</p>
+                    <p class="card-text">Amenities: Pool, Wi-Fi</p>
+                    <p class="card-text">Description: A luxurious hotel in downtown New York.</p>
+                    <form action="bookAccommodation" method="post">
+                        <input type="hidden" name="accommodationId" value="1">
+                        <input type="hidden" name="userId" value="1">
+                        <input type="submit" value="Book Now" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ... (Additional hotels go here) -->
+        <!-- Hotel 2 -->
+        <div class="col-md-4 mb-4 hotel" data-name="Hotel ABC" data-location="San Francisco" data-price="Medium" data-amenities="wifi">
+            <div class="card">
+                <img src="hotel2.jpg" class="card-img-top" alt="Hotel ABC">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel ABC</h5>
+                    <p class="card-text">Location: San Francisco</p>
+                    <p class="card-text">Price Range: Medium</p>
+                    <p class="card-text">Amenities: Wi-Fi</p>
+                    <p class="card-text">Description: A cozy hotel near Golden Gate Bridge.</p>
+                    <form action="bookAccommodation" method="post">
+                        <input type="hidden" name="accommodationId" value="1">
+                        <input type="hidden" name="userId" value="1">
+                        <input type="submit" value="Book Now" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 3 -->
+        <div class="col-md-4 mb-4 hotel" data-name="Luxury Resort" data-location="Maldives" data-price="Luxury" data-amenities="beachfront,pool,spa">
+            <div class="card">
+                <img src="hotel3.jpg" class="card-img-top" alt="Luxury Resort">
+                <div class="card-body">
+                    <h5 class="card-title">Luxury Resort</h5>
+                    <p class="card-text">Location: Maldives</p>
+                    <p class="card-text">Price Range: Luxury</p>
+                    <p class="card-text">Amenities: Beachfront, Pool, Spa</p>
+                    <p class="card-text">Description: A luxurious beachfront resort in the Maldives.</p>
+                    <form action="bookAccommodation" method="post">
+                        <input type="hidden" name="accommodationId" value="1">
+                        <input type="hidden" name="userId" value="1">
+                        <input type="submit" value="Book Now" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 4 -->
+        <div class="col-md-4 mb-4 hotel" data-name="Mountain Lodge" data-location="Switzerland" data-price="Medium" data-amenities="mountain-views,sauna">
+            <div class="card">
+                <img src="hotel4.jpg" class="card-img-top" alt="Mountain Lodge">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain Lodge</h5>
+                    <p class="card-text">Location: Switzerland</p>
+                    <p class "card-text">Price Range: Medium</p>
+                    <p class="card-text">Amenities: Mountain Views, Sauna</p>
+                    <p class="card-text">Description: A cozy lodge with stunning mountain views in Switzerland.</p>
+                    <form action="bookAccommodation" method="post">
+                        <input type="hidden" name="accommodationId" value="1">
+                        <input type="hidden" name="userId" value="1">
+                        <input type="submit" value="Book Now" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="accommodation" id="hotel2">
-        <h1>Hotel ABC</h1>
-        <p>Location: San Francisco</p>
-        <p>Price Range: Medium</p>
-        <p>Description: A cozy hotel near Golden Gate Bridge.</p>
-        <form action="bookAccommodation" method="post">
-            <input type="hidden" name="accommodationId" value="2">
-            <input type="hidden" name="userId" value="1"> <!-- Replace with the logged-in user's ID -->
-            <input type="submit" value="Book Now">
-        </form>
-    </div>
+    <!-- Filtering Script -->
+    <script>
+        $("#filterForm").submit(function(event) {
+            event.preventDefault();
+            // Collect filter values
+            const searchName = $("#searchName").val().toLowerCase();
+            const location = $("#locationFilter").val();
+            const price = $("#priceFilter").val();
+            const pool = $("#pool").is(":checked");
+            const wifi = $("#wifi").is(":checked");
 
-    <!-- ... additional accommodations ... -->
+            $(".hotel").each(function() {
+                const name = $(this).data("name").toLowerCase();
+                const hotelLocation = $(this).data("location");
+                const hotelPrice = $(this).data("price");
+                const amenities = $(this).data("amenities").split(",");
 
+                let visible = true;
+
+                if (searchName && !name.includes(searchName)) visible = false;
+                if (location && hotelLocation !== location) visible = false;
+                if (price && hotelPrice !== price) visible = false;
+                if (pool && !amenities.includes("pool")) visible = false;
+                if (wifi && !amenities.includes("wifi")) visible = false;
+
+                $(this).toggle(visible);
+            });
+        });
+    </script>
+    <!-- Add Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
